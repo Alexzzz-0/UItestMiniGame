@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ImmaLeave : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float moveDis = .1f;
+    public float scaleNum = 2f;
 
+    public GameObject fish;
     // Update is called once per frame
-    void Update()
+    
+    private void OnMouseDown()
     {
-        
+        Vector3 pos = transform.position;
+        pos.x += moveDis;
+        transform.position = pos;
+
+        Vector3 fishScale;
+        fishScale = fish.transform.localScale;
+        fishScale.x += moveDis * scaleNum;
+        fishScale.y += moveDis * scaleNum;
+        fish.transform.localScale = fishScale;
     }
 }
